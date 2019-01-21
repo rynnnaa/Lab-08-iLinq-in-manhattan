@@ -8,5 +8,6 @@ namespace Lab_08_iLinq_in_manhattan.Classes
     {
         public string type { get; set; }
         public List<Feature> features { get; set; }
+        public IEnumerable<object> Features { get; internal set; }
     }
 }
