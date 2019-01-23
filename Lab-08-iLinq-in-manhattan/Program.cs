@@ -42,6 +42,20 @@ namespace Lab_08_iLinq_in_manhattan
             {
                 Console.WriteLine(prop);
             }
+
+            //2. filter out neighborhoods without names
+            var hoodswithnames = from n in allneighborhoods
+                                     //name is not empty
+                                 where n != ""
+                                 select n;
+            Console.WriteLine();
+            Console.WriteLine("========Display Neighborhoods with names========");
+            Console.WriteLine();
+
+            foreach (var prop in hoodswithnames)
+            {
+                Console.WriteLine(prop);
+            }
         }
 
     }
