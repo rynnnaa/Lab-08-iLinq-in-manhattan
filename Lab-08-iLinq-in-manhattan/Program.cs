@@ -1,9 +1,9 @@
-﻿using Lab_08_iLinq_in_manhattan.Classes;
-using Newtonsoft.Json.Linq;
-using Newtonsoft.Json;
-using System;
+﻿using System;
 using System.IO;
-using System.Collections.Generic;y
+using System.Collections.Generic;
+using Lab_08_iLinq_in_manhattan.Classes;
+using Newtonsoft.Json;
+using Newtonsoft.Json.Linq;
 using System.Linq;
 
 namespace Lab_08_iLinq_in_manhattan
@@ -42,7 +42,59 @@ namespace Lab_08_iLinq_in_manhattan
             {
                 Console.WriteLine(prop);
             }
-        }
 
+            //2. filter out neighborhoods without names
+            var hoodswithnames = from n in allneighborhoods
+                                     //name is not empty
+                                 where n != ""
+                                 select n;
+            Console.WriteLine();
+            Console.WriteLine("========Display Neighborhoods with names========");
+            Console.WriteLine();
+
+            foreach (var prop in hoodswithnames)
+            {
+                Console.WriteLine(prop);
+            }
+
+            //remove duplicates
+            var nodupes = hoodswithnames.Distinct();
+            Console.WriteLine();
+            Console.WriteLine("============Remove neighborhood duplicates=======");
+            Console.WriteLine();
+
+            foreach (var prop in nodupes)
+            {
+                Console.WriteLine(prop);
+            }
+
+            //4.Consolidate previous queries into a single query
+            var consolidatedqueries = obj.Features.Where(n => n.Properties.Neighborhood.Length > 0)
+                .GroupBy(g => g.Properties.Neighborhood)
+                .Select(s => s.First());
+
+            Console.WriteLine();
+            Console.WriteLine("=====Consolidate Queries========");
+            Console.WriteLine();
+
+            foreach (var prop in consolidatedqueries)
+            {
+                Console.WriteLine(prop.Properties.Neighborhood);
+
+            }
+
+            //5. Rewrite a question using Linq, not lambda
+            var rewrite = allneighborhoods.Where(i => i != "");
+
+            Console.WriteLine();
+            Console.WriteLine("==========ReWritten Second Query");
+            Console.WriteLine();
+
+            foreach (var prop in hoodswithnames)
+            {
+                Console.WriteLine(prop);
+            }
+
+        }
     }
 }
