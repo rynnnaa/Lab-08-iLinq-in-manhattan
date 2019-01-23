@@ -29,4 +29,4 @@ To run the program, user must click the start button (Green arrow) in Visual Stu
 
 ## Visual Output 
 
-![Lab40108]()
+![Lab40108](https://github.com/rynnnaa/Lab-08-iLinq-in-manhattan/blob/master/Capture.PNG)
