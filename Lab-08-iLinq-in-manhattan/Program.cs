@@ -68,5 +68,20 @@ namespace Lab_08_iLinq_in_manhattan
                 Console.WriteLine(prop);
             }
 
+            //4.Consolidate previous queries into a single query
+            var consolidatedqueries = obj.Features.Where(n => n.Properties.Neighborhood.Length > 0)
+                .GroupBy(g => g.Properties.Neighborhood)
+                .Select(s => s.First());
+
+            Console.WriteLine();
+            Console.WriteLine("=====Consolidate Queries========");
+            Console.WriteLine();
+
+            foreach (var prop in consolidatedqueries)
+            {
+                Console.WriteLine(prop.Properties.Neighborhood);
+
+            }
+
     }
 }
