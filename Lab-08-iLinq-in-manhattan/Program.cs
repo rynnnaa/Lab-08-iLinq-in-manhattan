@@ -83,5 +83,18 @@ namespace Lab_08_iLinq_in_manhattan
 
             }
 
+            //5. Rewrite a question using Linq, not lambda
+            var rewrite = allneighborhoods.Where(i => i != "");
+
+            Console.WriteLine();
+            Console.WriteLine("==========ReWritten Second Query");
+            Console.WriteLine();
+
+            foreach (var prop in hoodswithnames)
+            {
+                Console.WriteLine(prop);
+            }
+
+        }
     }
 }
