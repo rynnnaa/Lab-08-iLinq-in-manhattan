@@ -56,7 +56,17 @@ namespace Lab_08_iLinq_in_manhattan
             {
                 Console.WriteLine(prop);
             }
-        }
+
+            //remove duplicates
+            var nodupes = hoodswithnames.Distinct();
+            Console.WriteLine();
+            Console.WriteLine("============Remove neighborhood duplicates=======");
+            Console.WriteLine();
+
+            foreach (var prop in nodupes)
+            {
+                Console.WriteLine(prop);
+            }
 
     }
 }
